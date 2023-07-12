@@ -10,7 +10,12 @@
         <h4>{{ product.title }}</h4>
         <p class="price">US${{ product.price.toFixed() }}</p>
         <button v-if="!isInBag(product)" @click="addToBag(product)">Adicionar ao carrinho</button>
-        <button v-else class="remove">Remover do carrinho</button>
+        <button 
+          v-else 
+          class="remove"
+          @click="this.$store.dispatch('removeFromBag', product.id)">
+            Remover do carrinho
+        </button>
       </div>
     </div>
     {{ productsInBag.length }}
