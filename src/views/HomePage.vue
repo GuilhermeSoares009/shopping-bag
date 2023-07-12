@@ -24,6 +24,8 @@
 
 <script>
 
+import { mapState } from 'vuex';
+
 export default {
   name: 'HomePage',
   data() {
@@ -31,14 +33,11 @@ export default {
       
     }
   },
-  computed: {
-    products() {
-      return this.$store.state.products;
-    },
-    productsInBag() {
-      return this.$store.state.productsInBag;
-    }
-  },
+  // MapStateHelper - Tem o objetivo de criar uma computed e chamar uma propriedades 
+  // com esse nome.
+  computed: mapState([
+    'products', 'productsInBag'
+  ]),
   methods: {
     addToBag(product) {
       product.quantity = 1;

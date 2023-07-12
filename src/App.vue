@@ -1,18 +1,25 @@
 <template>
   <div id="nav">
     <router-link to="/">Início</router-link> -
-    <router-link to="/basket">Carrinho (0)</router-link> 
+    <router-link to="/basket">Carrinho ({{ this.productsInBag.length }})</router-link> 
   </div>
   <router-view/>
 </template>
 
 <script>
 
+import { mapState } from 'vuex'
 
   export default {
     created() {
       this.$store.dispatch('loadProducts');
-    }
+    },
+    // MapStateHelper - Tem o objetivo de criar uma computed prop 
+    // e chamar no state a propriedade com aquele nome.
+    computed:  
+     mapState([
+      'productsInBag'
+     ])
   }
   
 </script>
