@@ -13,6 +13,7 @@ import { mapState } from 'vuex'
   export default {
     created() {
       this.$store.dispatch('loadProducts');
+      this.$store.dispatch('loadBag');
     },
     // MapStateHelper - Tem o objetivo de criar uma computed prop 
     // e chamar no state a propriedade com aquele nome.

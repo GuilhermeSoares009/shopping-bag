@@ -18,7 +18,6 @@
         </button>
       </div>
     </div>
-    {{ productsInBag.length }}
   </div>
 </template>
 
@@ -40,7 +39,8 @@ export default {
   ]),
   methods: {
     addToBag(product) {
-      product.quantity = 1;
+      product.quantity = 1; 
+       
       this.$store.dispatch('addToBag', product);
     },
     isInBag(product) {
